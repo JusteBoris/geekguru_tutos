@@ -1,1 +1,24 @@
+PS > Mount-DiskImage (chemin d’accès à l’image disque)\ExchangeServer2019-x64-CU12.iso
+PS>Get-Volume
+PS>(chemin d’accès au montage)\Setup.exe /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareSchema
+PS > (chemin d’accès au montage)\Setup.exe /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareAD /OrganizationName :"(Nom de l’organisation Exchange (nom de votre choix))’’
+PS > Dismount-DiskImage (chemin d’accès à l’image disque)\ExchangeServer2019-x64-CU12.iso
+# installation de IIS avec les outils d’administration 
+PS> Install-WindowsFeature Web-Server -IncludeManagementTools
+# vérification du fonctionnement en accédant au site web par défaut 
+PS> Invoke-WebRequest http://localhost
+# Montage du disque 
+PS C:\Windows\system32> Mount-DiskImage C:\Users\exchangeadmin\Documents\ExchangeServer2019-x64-CU12.iso
+PS>Get-Volume
+PS> cd (Lettre du disque Exchange):\
+# Exécuter l’installation
+# [/Mode=***] : Install | Uninstall | Upgrade | RecoverServer
+# [/Roles=***] : Mailbox | EdgeTransport | ManagementTools
+#    default is [Mailbox]
+# [InstallWindowsComponents] : l’installation nécessite les fonctionnalités et rôles Windows
+PS F:\> .\setup.exe /Mode:Install /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /Roles:Mailbox /InstallWindowsComponents
+# Redémarrer pour appliquer les modifications
+PS F:\> Restart-Computer -Force
+# Après redémarrage, vérifier l’installation sur [Exchange Management Shell]
+PS C:\Users\exchangeadmin> LaunchEMS
 
