@@ -1,7 +1,7 @@
 PS > Mount-DiskImage (chemin d’accès à l’image disque)\ExchangeServer2019-x64-CU12.iso
 PS>Get-Volume
 PS>(chemin d’accès au montage)\Setup.exe /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareSchema
-PS > (chemin d’accès au montage)\Setup.exe /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareAD /OrganizationName:"(Nom de l’organisation Exchange (nom de votre choix))’’
+PS > (chemin d’accès au montage)\Setup.exe /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareAD /OrganizationName:"(Nom de l’organisation Exchange (nom de votre choix))"
 PS > Dismount-DiskImage (chemin d’accès à l’image disque)\ExchangeServer2019-x64-CU12.iso
 # installation de IIS avec les outils d’administration 
 PS> Install-WindowsFeature Web-Server -IncludeManagementTools
